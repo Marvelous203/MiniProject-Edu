@@ -1,0 +1,42 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: flashlearn-app
+    ports:
+      - "8000:80"
+    volumes:
+      - ./:/var/www/html
+    depends_on:
+      - db
+    working_dir: /var/www/html
+
+  db:
+    image: mysql:8.0
+    container_name: flashlearn-db
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: flashlearn
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin:5-apache
+    container_name: flashlearn-phpmyadmin
+    restart: unless-stopped
+    depends_on:
+      - db
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+
+volumes:
+  mysql_data:

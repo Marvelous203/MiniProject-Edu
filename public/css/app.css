@@ -1,0 +1,407 @@
+:root {
+    --bg: #f4f7fb;
+    --surface: #ffffff;
+    --surface-muted: #eef4ff;
+    --primary: #1e3a8a;
+    --primary-soft: #dbeafe;
+    --accent: #14b8a6;
+    --text: #162033;
+    --muted: #667085;
+    --border: #d7e1f0;
+    --danger: #b42318;
+    --success: #0f766e;
+    --shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(180deg, #eef4ff 0%, #f8fbff 35%, #f4f7fb 100%);
+    color: var(--text);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+.container {
+    width: min(1120px, calc(100% - 32px));
+    margin: 0 auto;
+}
+
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.92);
+    border-bottom: 1px solid rgba(215, 225, 240, 0.8);
+    backdrop-filter: blur(12px);
+}
+
+.topbar-inner,
+.nav-links,
+.hero-actions,
+.hero-stats,
+.grid,
+.card-actions,
+.stack-horizontal,
+.form-grid,
+.split,
+.inline-form,
+.study-actions,
+.metric-grid {
+    display: flex;
+    gap: 16px;
+}
+
+.topbar-inner,
+.split,
+.inline-form,
+.study-actions {
+    align-items: center;
+    justify-content: space-between;
+}
+
+.topbar-inner {
+    padding: 16px 0;
+}
+
+.brand {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.brand-mark {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, var(--primary), #2563eb);
+    color: #fff;
+    font-weight: 700;
+}
+
+.brand small,
+.muted {
+    display: block;
+    color: var(--muted);
+}
+
+.nav-links {
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.content-area {
+    padding: 32px 0 56px;
+}
+
+.hero,
+.panel,
+.card,
+.auth-card,
+.study-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+}
+
+.hero {
+    padding: 32px;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.hero h1,
+.page-title {
+    margin: 0 0 12px;
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.05;
+}
+
+.hero p,
+.lead {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.hero-stats,
+.metric-grid,
+.grid {
+    flex-wrap: wrap;
+}
+
+.metric {
+    flex: 1 1 180px;
+    padding: 18px;
+    border-radius: 18px;
+    background: var(--surface-muted);
+    border: 1px solid #d8e5ff;
+}
+
+.metric strong {
+    display: block;
+    font-size: 28px;
+    margin-bottom: 6px;
+}
+
+.grid {
+    align-items: stretch;
+}
+
+.grid-3 > * {
+    flex: 1 1 calc(33.333% - 16px);
+}
+
+.grid-2 > * {
+    flex: 1 1 calc(50% - 16px);
+}
+
+.grid-4 > * {
+    flex: 1 1 calc(25% - 16px);
+}
+
+.card,
+.panel,
+.auth-card,
+.study-card {
+    padding: 24px;
+}
+
+h2,
+h3 {
+    margin: 0 0 10px;
+}
+
+.panel + .panel,
+.card + .card {
+    margin-top: 20px;
+}
+
+.eyebrow {
+    display: inline-flex;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: var(--primary-soft);
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: none;
+    border-radius: 14px;
+    padding: 12px 18px;
+    cursor: pointer;
+    transition:
+        transform 0.15s ease,
+        opacity 0.15s ease,
+        background 0.15s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), #2563eb);
+    color: #fff;
+}
+
+.btn-secondary {
+    background: #e8f5f4;
+    color: #0f766e;
+}
+
+.btn-dark {
+    background: #172554;
+    color: #fff;
+}
+
+.btn-outline {
+    background: #fff;
+    border: 1px solid var(--border);
+    color: var(--text);
+}
+
+.btn-danger {
+    background: #fee4e2;
+    color: var(--danger);
+}
+
+.badge {
+    display: inline-flex;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    background: #eef2ff;
+    color: #4338ca;
+}
+
+.alert {
+    margin-bottom: 18px;
+    padding: 16px 18px;
+    border-radius: 16px;
+    border: 1px solid transparent;
+}
+
+.alert-success {
+    background: #ecfdf3;
+    border-color: #abefc6;
+    color: #067647;
+}
+
+.alert-error {
+    background: #fef3f2;
+    border-color: #fecdca;
+    color: var(--danger);
+}
+
+.error-list {
+    margin: 8px 0 0;
+    padding-left: 18px;
+}
+
+.form-grid,
+.stack-vertical {
+    display: grid;
+    gap: 16px;
+}
+
+.form-grid.two {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+label {
+    display: grid;
+    gap: 8px;
+    font-weight: 600;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: #fff;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 14px 12px;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+}
+
+.auth-layout {
+    min-height: 70vh;
+    display: grid;
+    place-items: center;
+}
+
+.auth-card {
+    width: min(520px, 100%);
+}
+
+.study-card {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.flashcard-face {
+    min-height: 240px;
+    padding: 28px;
+    border-radius: 24px;
+    background: linear-gradient(180deg, #eff6ff 0%, #ffffff 100%);
+    border: 1px solid #dbeafe;
+    display: grid;
+    align-content: center;
+    gap: 12px;
+}
+
+.flashcard-answer {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px dashed #93c5fd;
+}
+
+.hidden {
+    display: none;
+}
+
+.page-header {
+    margin-bottom: 20px;
+}
+
+.list {
+    display: grid;
+    gap: 16px;
+}
+
+.small {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+details summary {
+    cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    .hero,
+    .form-grid.two {
+        grid-template-columns: 1fr;
+    }
+
+    .topbar-inner,
+    .nav-links,
+    .split,
+    .study-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .grid-3 > *,
+    .grid-2 > * {
+        flex-basis: 100%;
+    }
+}
